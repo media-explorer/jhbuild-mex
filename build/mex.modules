@@ -10,12 +10,12 @@
 
   <include href="mex-common.modules" />
 
-  <autotools id="clutter" autogenargs="--disable-introspection">
+  <autotools id="clutter" autogenargs="--disable-introspection --with-gles=2.0 --with-flavour=eglx">
     <branch repo="git.gnome.org"
             module="clutter"
             revision="clutter-1.6"/>
     <dependencies>
-      <dep package="cairo"/>
+      <!-- <dep package="cairo"/> -->
       <dep package="json-glib"/>
     </dependencies>
   </autotools>

@@ -146,7 +146,7 @@
             module="json-glib"
             revision="json-glib-0-12"/>
     <dependencies>
-      <dep package="glib"/>
+      <!-- <dep package="glib"/> -->
     </dependencies>
   </autotools>
 
@@ -188,18 +188,18 @@
 
   <!-- MediaExplorer -->
 
-  <autotools id="mex" autogenargs="--disable-introspection --disable-library">
+  <autotools id="mex" autogenargs="--disable-introspection --disable-library --with-player=d-bus --enable-rebinder=no --enable-displayconf=no --enable-networks=no">
     <branch repo="github.com"
             module="media-explorer/media-explorer"
             revision="master"/>
     <dependencies>
       <dep package="clutter"/>
-      <dep package="clutter-gst"/>
+      <!-- <dep package="clutter-gst"/> -->
       <dep package="mx"/>
-      <dep package="grilo"/>
-      <dep package="grilo-plugins" />
-      <dep package="tracker-upnp" />
-      <dep package="librest" />
+      <!-- <dep package="grilo"/> -->
+      <!-- <dep package="grilo-plugins" /> -->
+      <!-- <dep package="tracker-upnp" /> -->
+      <!-- <dep package="librest" /> -->
     </dependencies>
   </autotools>
 
@@ -207,7 +207,7 @@
 
   <metamodule id="meta-mex">
     <dependencies>
-      <dep package="tumbler" />
+      <!-- <dep package="tumbler" /> -->
       <dep package="mex"/>
     </dependencies>
   </metamodule>

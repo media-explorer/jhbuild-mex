@@ -3,8 +3,10 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
-  <repository type="git" name="git.clutter-project.org"
-              href="git://git.clutter-project.org/" />
+  <repository type="git" name="git.gnome.org"
+              href="git://git.gnome.org/" />
+  <repository type="git" name="github.com"
+              href="git://github.com/"/>
   <repository type="git" name="git.freedesktop.org"
               href="git://anongit.freedesktop.org" />
   <repository type="svn" name="svn.fluendo.com"
@@ -21,30 +23,30 @@
             revision="master"/>
   </autotools>
 
-  <autotools id="xkbcommon">
+  <autotools id="xkbcommon" autogenargs="--with-xkb-config-root=/usr/share/X11/xkb">
     <branch repo="git.freedesktop.org"
             module="xorg/lib/libxkbcommon"
             revision="master"/>
     <dependencies>
-      <dep package="kbproto"/>
+      <!-- <dep package="kbproto"/> -->
     </dependencies>
   </autotools>
 
   <autotools id="clutter" autogenargs="--with-flavour=cex100 --with-gles=2.0">
-    <branch repo="git.clutter-project.org"
+    <branch repo="git.gnome.org"
             module="clutter"
-            revision="master"/>
+            revision="clutter-1.6"/>
     <dependencies>
-      <dep package="glib"/>
-      <dep package="cairo"/>
-      <dep package="json-glib"/>
+      <!-- <dep package="glib"/> -->
+      <!-- <dep package="cairo"/> -->
+      <!-- <dep package="json-glib"/> -->
       <dep package="xkbcommon"/>
     </dependencies>
   </autotools>
 
-  <autotools id="mx" autogenargs="--without-imcontext --without-gesture --with-winsys='none'">
-    <branch repo="git.clutter-project.org"
-            module="mx"
+  <autotools id="mx" autogenargs="--without-imcontext --without-gesture --with-winsys='x11'">
+    <branch repo="github.com"
+            module="clutter-project/mx"
             revision="master"/>
     <dependencies>
       <dep package="clutter"/>
