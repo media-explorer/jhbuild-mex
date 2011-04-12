@@ -23,8 +23,10 @@ Then, from within your jhbuild-mex clone run:
 
 This command will install:
 
-  - jhbuild-mex            - a wrapper around jhbuild
-  - $HOME/.jhbuildrc-mex   - a jhbuild configuration file
+  - $HOME/bin/jhbuild-mex       - a wrapper around jhbuild
+  - $HOME/.jhbuildrc-mex        - a jhbuild configuration file
+  - $HOME/.jhbuildrc-mex-custom - a jhbuild configuration file for
+                                  customisations of the default settings
 
 Building MediaExplorer
 -------------------------------------------------------------------------------
@@ -66,7 +68,8 @@ A: The default modules file is expected to be at:
   ~/src/jhbuild-mex/build/mex.modules
 
 If you've installed jhbuild-mex to a different location,
-edit the jhbuildrc-mex configuration file, on the
+edit the jhbuildrc-mex-custom configuration file, uncommenting and
+editing the
 
   moduleset
 

@@ -1,0 +1,7 @@
+# uncomment and edit the following lines to customise destination directories
+#moduleset = os.path.expanduser('~/sources/jhbuild-mex/build/mex.modules')
+#checkoutroot = os.path.expanduser('~/sources/mex')
+#prefix = os.path.expanduser('~/install/mex')
+
+# use lines like the following to customise individual modules
+#module_autogenargs['mx'] = '--enable-gtk-doc'
