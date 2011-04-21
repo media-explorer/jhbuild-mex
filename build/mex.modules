@@ -1,0 +1,34 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+  <repository type="git" name="git.gnome.org"
+              href="git://git.gnome.org/" />
+  <repository type="git" name="github.com"
+              href="git://github.com/"/>
+
+  <include href="mex-common.modules" />
+
+  <autotools id="clutter" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="clutter"
+            revision="clutter-1.6"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="json-glib"/>
+    </dependencies>
+  </autotools>
+
+  <!-- disable gtk widgets as it's both unneeded and would pull gtk into
+  the build to have the right gir file version -->
+  <autotools id="mx" autogenargs="--disable-introspection --disable-gtk-widgets">
+    <branch repo="github.com"
+            module="clutter-project/mx.git"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>

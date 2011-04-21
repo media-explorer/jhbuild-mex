@@ -1,0 +1,24 @@
+From 028a4cc18559a789bc980c23d8a2e163592349c7 Mon Sep 17 00:00:00 2001
+From: Damien Lespiau <damien.lespiau@intel.com>
+Date: Tue, 28 Sep 2010 11:34:37 +0100
+Subject: [PATCH] core: Remove g_message() spewing screens of debug messages
+
+---
+ gdata/gdata-parsable.c |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/gdata/gdata-parsable.c b/gdata/gdata-parsable.c
+index 598d492..064ae0a 100644
+--- a/gdata/gdata-parsable.c
++++ b/gdata/gdata-parsable.c
+@@ -98,7 +98,6 @@ real_parse_xml (GDataParsable *parsable, xmlDoc *doc, xmlNode *node, gpointer us
+ 	buffer = xmlBufferCreate ();
+ 	xmlNodeDump (buffer, doc, node, 0, 0);
+ 	g_string_append (parsable->priv->extra_xml, (gchar*) xmlBufferContent (buffer));
+-	g_message ("Unhandled XML in %s: %s", G_OBJECT_TYPE_NAME (parsable), (gchar*) xmlBufferContent (buffer));
+ 	xmlBufferFree (buffer);
+ 
+ 	/* Get the namespaces */
+-- 
+1.7.2.1
+

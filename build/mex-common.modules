@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+  <repository type="tarball" name="cairo.org"
+              href="http://cairographics.org/"/>
+  <repository type="git" name="freedesktop.org"
+      href="git://anongit.freedesktop.org/"/>
+  <repository type="git" name="git.gnome.org"
+      href="git://git.gnome.org"/>
+  <repository type="git" name="meego.gitorious.org"
+      href="git://gitorious.org/"/>
+  <repository type="git" name="github.com"
+      href="git://github.com/"/>
+  <repository type="git" name="otcshare.github.com"
+      href="git@github.com:otcshare"/>
+
+  <repository type="git" name="git.meego.com"
+      href="ssh://git@git.meego.com" />
+
+  <!-- GNOME plaform -->
+
+  <!-- use the distribution gir/typelib files
+  <autotools id="gir-repository">
+    <branch repo="git.gnome.org"
+            module="gir-repository"
+            revision="master"/>
+  </autotools>-->
+
+  <autotools id="pango">
+    <branch repo="git.gnome.org"
+            module="pango"
+            revision="master" />
+  </autotools>
+
+  <autotools id="glib">
+    <branch repo="git.gnome.org"
+            module="glib"
+            revision="glib-2-28" />
+  </autotools>
+
+  <autotools id="pixman" autogenargs="--disable-gtk">
+    <branch module="releases/pixman-0.18.4.tar.gz" version="1.18.4"
+            repo="cairo.org"
+            hash="sha256:1484092277c5187f5458229a2b7fd7fbc0cb07e1f220c7f8f9ac65de6dba7989"
+            md5sum="532db4194e18c108d0b7dd85f20d39b8" size="510878">
+    </branch>
+  </autotools>
+
+  <autotools id="cairo">
+    <branch module="releases/cairo-1.10.0.tar.gz" version="1.10.0"
+            repo="cairo.org"
+            hash="sha256:0f2ce4cc4615594088d74eb8b5360bad7c3cc3c3da9b61af9bfd979ed1ed94b2"
+            md5sum="70a2ece66cf473d976e2db0f75bf199e" size="24022822">
+    </branch>
+    <dependencies>
+      <dep package="pixman"/>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+
+  <!-- Vala -->
+
+  <tarball id="vala" version="0.11.4" autogenargs="--enable-vapigen">
+    <source href="http://download.gnome.org/sources/vala/0.11/vala-0.11.4.tar.bz2"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </tarball>
+
+  <!-- Sqlite -->
+
+  <tarball id="sqlite3" version="3.7.4"
+           autogenargs="--enable-threadsafe --disable-tcl --enable-load-extension">
+    <source href="http://www.sqlite.org/sqlite-autoconf-3070400.tar.gz"
+            hash="sha256:54ef0481d4318aaf0d701cbcccf67f80d96568e34279b949cfded900b1e4348c"
+            md5sum="8f0c690bfb33c3cbbc2471c3d9ba0158" size="1545086" />
+    <patches>
+      <patch file="sqlite3-compile-with-SQLITE_OMIT_LOOKASIDE-flag.patch" strip="1"/>
+    </patches>
+  </tarball>
+
+  <!-- GVFS -->
+
+  <tarball id="gvfs" version="1.6.4" autogenargs="--enable-gdu --disable-hal --disable-gconf" makeinstallargs="install install-data">
+    <source href="http://ftp.gnome.org/pub/GNOME/sources/gvfs/1.6/gvfs-1.6.4.tar.bz2" />
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </tarball>
+
+  <!-- Tracker -->
+
+  <autotools id="tracker" autogenargs="--with-unicode-support=libicu --disable-miner-rss --disable-nautilus-extension --disable-gnome-keyring --disable-tracker-search-bar --enable-libexif">
+    <branch repo="git.gnome.org"
+            module="tracker"
+            tag="0.10.6" />
+    <dependencies>
+      <dep package="gvfs"/>
+      <dep package="vala"/>
+      <dep package="sqlite3"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="tracker-upnp">
+    <branch repo="meego.gitorious.org"
+            module="tracker-upnp/tracker-upnp.git"
+            revision="master" />
+    <dependencies>
+      <dep package="tracker"/>
+    </dependencies>
+  </autotools>
+
+  <!-- Grilo -->
+
+  <tarball id="libgdata" version="0.8.0" autogenargs="--disable-introspection">
+    <source href="http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.8/libgdata-0.8.0.tar.bz2" />
+    <patches>
+      <patch file="gdata-core-Remove-g_message-spewing-screens-of-debug-messa.patch" strip="1"/>
+    </patches>
+  </tarball>
+
+  <!-- disable vala as it'll use the system vala and try to install the vapi
+  files to /usr -->
+  <autotools id="grilo" autogenargs="--disable-vala --disable-introspection --enable-maintainer-mode">
+    <branch repo="git.gnome.org"
+            module="grilo"
+            revision="master"/>
+    <dependencies>
+      <dep package="libgdata"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="grilo-plugins" autogenargs="--disable-upnp --enable-vimeo --enable-filesystem --enable-tracker --disable-metadata-store --disable-local-metadata --enable-maintainer-mode" >
+    <branch repo="git.gnome.org"
+            module="grilo-plugins"
+            revision="master"/>
+    <dependencies>
+      <dep package="tracker"/>
+    </dependencies>
+  </autotools>
+
+  <!-- Clutter -->
+
+  <autotools id="json-glib" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="json-glib"
+            revision="json-glib-0-12"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="clutter-gst" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="clutter-gst"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="clutter-gtk" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="clutter-gtk"
+            revision="clutter-gtk-0.12"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="librest" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="librest"
+            revision="master"/>
+    <dependencies>
+    </dependencies>
+  </autotools>
+
+  <autotools id="tumbler">
+    <branch repo="github.com"
+            module="rossburton/tumbler"
+            revision="master"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+    </dependencies>
+  </autotools>
+
+  <!-- MediaExplorer -->
+
+  <autotools id="mex" autogenargs="--disable-introspection --disable-library">
+    <branch repo="otcshare.github.com"
+            module="media-explorer"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+      <dep package="clutter-gst"/>
+      <dep package="mx"/>
+      <dep package="grilo"/>
+      <dep package="grilo-plugins" />
+      <dep package="tracker-upnp" />
+      <dep package="librest" />
+    </dependencies>
+  </autotools>
+
+  <!-- meta module -->
+
+  <metamodule id="meta-mex">
+    <dependencies>
+      <dep package="tumbler" />
+      <dep package="mex"/>
+    </dependencies>
+  </metamodule>
+
+</moduleset>

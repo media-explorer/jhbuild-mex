@@ -1,0 +1,86 @@
+MediaExplorer - JHBuild
+===============================================================================
+
+jhbuid-mex is a repository containing scripts and a JHBuild moduleset for
+building and developing the MediaExplorer User Shell and related libraries.
+
+Initialization
+-------------------------------------------------------------------------------
+
+Install the following dependencies (on Debian) :
+
+  bison flex libdbus-glib-1-dev libgdu-dev libgudev-1.0-dev libicu-dev
+
+You should check out JHBuild from the GNOME Git repository:
+
+  git clone git://git.gnome.org/jhbuild
+
+Then build it and install it.
+
+Then, from within your jhbuild-mex clone run:
+
+  make install
+
+This command will install:
+
+  - jhbuild-mex            - a wrapper around jhbuild
+  - $HOME/.jhbuildrc-mex   - a jhbuild configuration file
+
+Building MediaExplorer
+-------------------------------------------------------------------------------
+
+To build the whole MediaExplorer UI:
+
+  jhbuild-mex build
+
+This will also take care of the dependencies.
+
+The modules will be downloaded under $HOME/mex/source.
+The modules will be installed under $HOME/mex/install
+
+Running MediaExplorer
+-------------------------------------------------------------------------------
+
+To run MediaExplorer:
+
+  cd $HOME/mex/install/bin
+
+Start a jhbuild shell:
+
+  jhbuild-mex shell
+
+Start Tracker (the version installed by jhbuild):
+
+  ./tracker-control -s
+
+Then start MediaExplorer:
+
+  ./mex
+
+Common issues
+-------------------------------------------------------------------------------
+
+Q: Why jhbuild can't find the MediaExplorer modules file?
+A: The default modules file is expected to be at:
+
+  ~/src/jhbuild-mex/build/mex.modules
+
+If you've installed jhbuild-mex to a different location,
+edit the jhbuildrc-mex configuration file, on the
+
+  moduleset
+
+line. Using the absolute path to the mex.modules file should work.
+
+Q: Why doesn't <insert a D-Bus service> start?
+A: In order to activate a D-Bus service installed within the JHBuild
+root you have to modify the /etc/dbus-1/session.conf file by adding
+the following line:
+
+  <servicedir>@PREFIX@/mex/install/share/dbus-1/services</servicedir>
+
+Where @PREFIX@ is the prefix used by JHBuild -- the user's home directory
+by default.
+
+You will have to restart D-Bus, which usually means logging out or a
+complete reboot.

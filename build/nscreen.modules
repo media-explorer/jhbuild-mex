@@ -1,0 +1,114 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <repository type="git" name="git.clutter-project.org"
+      href="git://git.clutter-project.org/"/>
+  <repository type="git" name="umd-repo.jf.intel.com"
+      href="ssh://gitosis@umd-repo.jf.intel.com/" />
+  <repository type="git" name="git.moblin.org"
+      href="git://git.moblin.org/"/>
+  <repository type="git" name="gitorious.org"
+      href="git://gitorious.org/"/>
+
+  <include href="mex.modules" />
+
+  <autotools id="hornsey">
+    <branch repo="umd-repo.jf.intel.com"
+            module="hornsey"
+            revision="nscreen"/>
+    <dependencies>
+      <dep package="bognor-regis"/>
+      <dep package="mx"/>
+      <dep package="clutter-gst"/>
+      <dep package="clutter-imcontext"/>
+      <dep package="clutter-gtk"/>
+      <dep package="tumbler"/>
+      <dep package="maemo-video-thumbnailer"/>
+    </dependencies>
+    <suggests>
+      <dep package="tracker"/>
+    </suggests>
+  </autotools>
+
+  <autotools id="bognor-regis">
+    <branch repo="git.moblin.org"
+            module="bognor-regis"
+            revision="master"/>
+    <suggests>
+      <dep package="gupnp"/>
+      <dep package="gupnp-av"/>
+      <dep package="tracker"/>
+    </suggests>
+  </autotools>
+
+  <autotools id="clutter-gtk" autogenargs="--disable-introspection">
+    <branch repo="git.clutter-project.org"
+            module="clutter-gtk"
+            revision="clutter-gtk-0.10"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="clutter-imcontext">
+    <branch repo="gitorious.org"
+            module="mx-toolkit/clutter-imcontext"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+  <tarball id="tracker" version="0.9.23" autogenargs="--disable-miner-evolution">
+    <source href="http://ftp.gnome.org/pub/GNOME/sources/tracker/0.9/tracker-0.9.23.tar.bz2"
+            hash="sha256:9978ab9f8ced5c2f71e9743a83e609b9b08e14be208cdd4c1b222aa8c2fd07c1"
+            size="7025668"/>
+    <dependencies>
+      <dep package="dbus-glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gstreamer"/>
+      <dep package="hal"/>
+      <dep package="intltool"/>
+      <dep package="poppler"/>
+      <dep package="sqlite3"/>
+      <dep package="vala"/>
+    </dependencies>
+    <suggests>
+      <dep package="evolution"/>
+      <dep package="exempi"/>
+      <dep package="DeviceKit-power"/>
+      <dep package="libgsf"/>
+    </suggests>
+  </tarball>
+
+  <autotools id="tumbler">
+    <branch repo="gitorious.org"
+            module="maemo-af/tumbler"
+            revision="master" />
+    <dependencies>
+      <!-- dep package="foo"/ -->
+    </dependencies>
+  </autotools>
+
+  <autotools id="maemo-video-thumbnailer">
+    <branch repo="gitorious.org"
+            module="maemo-af/maemo-video-thumbnailer"
+            revision="master" />
+    <dependencies>
+      <!-- dep package="foo"/ -->
+    </dependencies>
+  </autotools>
+
+  <!-- meta module -->
+
+  <metamodule id="meta-nscreen">
+    <dependencies>
+      <dep package="hornsey"/>
+    </dependencies>
+  </metamodule>
+
+</moduleset>
+
