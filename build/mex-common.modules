@@ -13,8 +13,6 @@
       href="git://gitorious.org/"/>
   <repository type="git" name="github.com"
       href="git://github.com/"/>
-  <repository type="git" name="otcshare.github.com"
-      href="git@github.com:otcshare"/>
 
   <repository type="git" name="git.meego.com"
       href="ssh://git@git.meego.com" />
@@ -191,8 +189,8 @@
   <!-- MediaExplorer -->
 
   <autotools id="mex" autogenargs="--disable-introspection --disable-library">
-    <branch repo="otcshare.github.com"
-            module="media-explorer"
+    <branch repo="github.com"
+            module="media-explorer/media-explorer"
             revision="master"/>
     <dependencies>
       <dep package="clutter"/>
