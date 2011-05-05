@@ -93,7 +93,7 @@
   <autotools id="tracker" autogenargs="--with-unicode-support=libicu --disable-miner-rss --disable-nautilus-extension --disable-gnome-keyring --disable-tracker-search-bar --enable-libexif">
     <branch repo="git.gnome.org"
             module="tracker"
-            tag="0.10.6" />
+            revision="tracker-0.10" />
     <dependencies>
       <dep package="gvfs"/>
       <dep package="vala"/>
