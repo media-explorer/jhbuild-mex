@@ -90,7 +90,7 @@
 
   <!-- Tracker -->
 
-  <autotools id="tracker" autogenargs="--with-unicode-support=libicu --disable-miner-rss --disable-nautilus-extension --disable-gnome-keyring --disable-tracker-search-bar --enable-libexif --enable-guarantee-metadata">
+  <autotools id="tracker" autogenargs="--with-unicode-support=libicu --disable-miner-rss --disable-nautilus-extension --disable-gnome-keyring --disable-tracker-search-bar --enable-libexif --enable-guarantee-metadata --enable-video-extractor=gstreamer">
     <branch repo="git.gnome.org"
             module="tracker"
             revision="tracker-0.10" />
