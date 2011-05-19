@@ -124,7 +124,7 @@
   <autotools id="grilo" autogenargs="--disable-vala --disable-introspection --enable-maintainer-mode">
     <branch repo="git.gnome.org"
             module="grilo"
-            revision="master"/>
+            revision="0.1.x"/>
     <dependencies>
       <dep package="libgdata"/>
     </dependencies>
@@ -133,7 +133,7 @@
   <autotools id="grilo-plugins" autogenargs="--disable-upnp --enable-vimeo --enable-filesystem --enable-tracker --disable-metadata-store --disable-local-metadata --enable-maintainer-mode" >
     <branch repo="git.gnome.org"
             module="grilo-plugins"
-            revision="master"/>
+            revision="0.1.x"/>
     <dependencies>
       <dep package="tracker"/>
     </dependencies>
