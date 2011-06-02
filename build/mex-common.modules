@@ -161,6 +161,10 @@
       <dep package="gvfs"/>
       <dep package="vala"/>
       <dep package="sqlite3"/>
+      <dep package="gst-ffmpeg"/>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gst-plugins-ugly"/>
+      <dep package="gst-plugins-good"/>
     </dependencies>
   </autotools>
 
@@ -219,6 +223,10 @@
             revision="master"/>
     <dependencies>
       <dep package="clutter"/>
+      <dep package="gst-ffmpeg"/>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gst-plugins-ugly"/>
+      <dep package="gst-plugins-good"/>
     </dependencies>
   </autotools>
 
