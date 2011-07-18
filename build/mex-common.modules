@@ -13,6 +13,8 @@
       href="git://gitorious.org/"/>
   <repository type="git" name="github.com"
       href="git://github.com/"/>
+  <repository type="git" name="github.com/rib"
+      href="git://github.com/rib"/>
 
   <repository type="git" name="git.meego.com"
       href="ssh://git@git.meego.com" />
@@ -25,6 +27,12 @@
             module="gir-repository"
             revision="master"/>
   </autotools>-->
+
+  <autotools id="uprof">
+    <branch repo="github.com/rib"
+            module="UProf"
+            revision="master" />
+  </autotools>
 
   <autotools id="pango">
     <branch repo="git.gnome.org"
