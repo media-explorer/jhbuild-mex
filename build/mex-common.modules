@@ -133,9 +133,6 @@
     <branch repo="git.gnome.org"
             module="grilo"
             revision="0.1.x"/>
-    <dependencies>
-      <dep package="libgdata"/>
-    </dependencies>
   </autotools>
 
   <autotools id="grilo-plugins" autogenargs="--enable-vimeo --enable-filesystem --enable-tracker --enable-lastfm-albumart --enable-podcasts --enable-maintainer-mode" >
@@ -143,7 +140,9 @@
             module="grilo-plugins"
             revision="0.1.x"/>
     <dependencies>
+      <dep package="grilo"/>
       <dep package="tracker"/>
+      <dep package="libgdata"/>
     </dependencies>
   </autotools>
 
