@@ -138,7 +138,7 @@
     </dependencies>
   </autotools>
 
-  <autotools id="grilo-plugins" autogenargs="--disable-upnp --enable-vimeo --enable-filesystem --enable-tracker --disable-metadata-store --disable-local-metadata --enable-maintainer-mode" >
+  <autotools id="grilo-plugins" autogenargs="--enable-vimeo --enable-filesystem --enable-tracker --enable-lastfm-albumart --enable-podcasts --enable-maintainer-mode" >
     <branch repo="git.gnome.org"
             module="grilo-plugins"
             revision="0.1.x"/>
