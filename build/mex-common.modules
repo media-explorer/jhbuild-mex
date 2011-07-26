@@ -207,7 +207,6 @@
 
   <metamodule id="meta-mex">
     <dependencies>
-      <dep package="tumbler" />
       <dep package="mex"/>
     </dependencies>
   </metamodule>
