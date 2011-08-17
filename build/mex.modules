@@ -10,12 +10,21 @@
 
   <include href="mex-common.modules" />
 
+  <autotools id="cogl" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="cogl"
+            revision="master"/>
+    <dependencies>
+    </dependencies>
+  </autotools>
+
   <autotools id="clutter" autogenargs="--disable-introspection">
     <branch repo="git.gnome.org"
             module="clutter"
-            revision="clutter-1.6"/>
+            revision="master"/>
     <dependencies>
       <dep package="cairo"/>
+      <dep package="cogl"/>
       <dep package="json-glib"/>
     </dependencies>
   </autotools>
