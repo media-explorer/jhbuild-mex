@@ -10,6 +10,14 @@
 
   <include href="mex-common.modules" />
 
+  <autotools id="atk" autogenargs="--disable-introspection">
+    <branch repo="git.gnome.org"
+            module="atk"
+            revision="master"/>
+    <dependencies>
+    </dependencies>
+  </autotools>
+
   <autotools id="cogl" autogenargs="--disable-introspection">
     <branch repo="git.gnome.org"
             module="cogl"
@@ -23,6 +31,7 @@
             module="clutter"
             revision="master"/>
     <dependencies>
+      <dep package="atk"/>
       <dep package="cairo"/>
       <dep package="cogl"/>
       <dep package="json-glib"/>
