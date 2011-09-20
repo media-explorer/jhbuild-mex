@@ -16,6 +16,9 @@
             revision="master"/>
     <dependencies>
     </dependencies>
+    <after>
+      <dep package="glib"/>
+    </after>
   </autotools>
 
   <autotools id="cogl" autogenargs="--disable-introspection">
@@ -24,6 +27,9 @@
             revision="master"/>
     <dependencies>
     </dependencies>
+    <after>
+      <dep package="glib"/>
+    </after>
   </autotools>
 
   <autotools id="clutter" autogenargs="--disable-introspection">
