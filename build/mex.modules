@@ -32,10 +32,12 @@
             revision="master"/>
     <dependencies>
       <dep package="atk"/>
+    </dependencies>
+    <after>
       <dep package="cairo"/>
       <dep package="cogl"/>
       <dep package="json-glib"/>
-    </dependencies>
+    </after>
   </autotools>
 
   <!-- disable gtk widgets as it's both unneeded and would pull gtk into

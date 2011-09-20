@@ -141,9 +141,11 @@
             revision="0.1.x"/>
     <dependencies>
       <dep package="grilo"/>
+    </dependencies>
+    <after>
       <dep package="tracker"/>
       <dep package="libgdata"/>
-    </dependencies>
+    </after>
   </autotools>
 
   <!-- Clutter -->
@@ -205,17 +207,31 @@
       <dep package="mx"/>
       <dep package="grilo"/>
       <dep package="grilo-plugins" />
-      <dep package="tracker-upnp" />
-      <dep package="librest" />
     </dependencies>
+    <after>
+      <dep package="librest" />
+      <dep package="tracker-upnp" />
+    </after>
   </autotools>
 
-  <!-- meta module -->
+  <!-- meta modules -->
 
-  <metamodule id="meta-mex">
+  <metamodule id="meta-mex-minimal">
     <dependencies>
       <dep package="mex"/>
     </dependencies>
   </metamodule>
 
+  <metamodule id="meta-mex">
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="cogl"/>
+      <dep package="json-glib"/>
+      <dep package="tracker"/>
+      <dep package="libgdata"/>
+      <dep package="librest" />
+      <dep package="tracker-upnp" />
+      <dep package="mex"/>
+    </dependencies>
+  </metamodule>
 </moduleset>
