@@ -5,6 +5,11 @@
 <moduleset>
   <repository type="tarball" name="cairo.org"
               href="http://cairographics.org/"/>
+  <repository type="tarball" name="telepathy"
+              href="http://telepathy.freedesktop.org/releases/" />
+  <repository type="tarball" name="farsight"
+              href="http://farsight.freedesktop.org/releases/farsight2/" />
+
   <repository type="git" name="freedesktop.org"
       href="git://anongit.freedesktop.org/"/>
   <repository type="git" name="git.gnome.org"
@@ -195,6 +200,35 @@
     </dependencies>
   </autotools>
 
+  <!-- telepathy plugin dependencies -->
+
+  <autotools id="telepathy-glib">
+    <branch module="telepathy-glib/telepathy-glib-0.15.5.tar.gz"
+            version="0.15.5" repo="telepathy">
+    </branch>
+  </autotools>
+
+  <autotools id="farsight" autogenargs="--disable-python">
+    <branch module="farsight2-0.0.30.tar.gz"
+            version="0.0.30" repo="farsight">
+    </branch>
+  </autotools>
+
+  <autotools id="telepathy-farstream" autogenargs="--disable-python">
+    <branch module="telepathy-farstream/telepathy-farstream-0.1.1.tar.gz"
+            version="0.1.1" repo="telepathy">
+    </branch>
+    <dependencies>
+      <dep package="farsight"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="telepathy-yell">
+    <branch module="telepathy-yell/telepathy-yell-0.0.3.tar.gz"
+            version="0.0.3" repo="telepathy">
+    </branch>
+  </autotools>
+
   <!-- MediaExplorer -->
 
   <autotools id="mex" autogenargs="--disable-introspection --disable-library">
@@ -211,6 +245,10 @@
     <after>
       <dep package="librest" />
       <dep package="tracker-upnp" />
+      <!-- telepathy plugin -->
+      <dep package="telepathy-glib" />
+      <dep package="telepathy-farstream" />
+      <dep package="telepathy-yell" />
     </after>
   </autotools>
 
@@ -231,6 +269,10 @@
       <dep package="libgdata"/>
       <dep package="librest" />
       <dep package="tracker-upnp" />
+      <!-- telepathy plugin -->
+      <dep package="telepathy-glib" />
+      <dep package="telepathy-farstream" />
+      <dep package="telepathy-yell" />
       <dep package="mex"/>
     </dependencies>
   </metamodule>
