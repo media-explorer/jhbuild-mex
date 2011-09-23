@@ -57,7 +57,7 @@ Start Tracker (the version installed by jhbuild):
 
 Then start MediaExplorer:
 
-  ./mex
+  ./media-explorer
 
 Common issues
 -------------------------------------------------------------------------------
