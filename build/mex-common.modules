@@ -73,8 +73,8 @@
 
   <!-- Vala -->
 
-  <tarball id="vala" version="0.12.1" autogenargs="--enable-vapigen">
-    <source href="http://download.gnome.org/sources/vala/0.12/vala-0.12.1.tar.bz2"/>
+  <tarball id="vala" version="0.14.0" autogenargs="--enable-vapigen">
+    <source href="http://download.gnome.org/sources/vala/0.14/vala-0.14.0.tar.bz2"/>
     <dependencies>
       <dep package="glib"/>
     </dependencies>
