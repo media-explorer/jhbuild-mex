@@ -12,6 +12,8 @@
 
   <repository type="git" name="freedesktop.org"
       href="git://anongit.freedesktop.org/"/>
+  <repository type="git" name="gstreamer"
+      href="git://anongit.freedesktop.org/gstreamer"/>
   <repository type="git" name="git.gnome.org"
       href="git://git.gnome.org"/>
   <repository type="git" name="meego.gitorious.org"
@@ -232,6 +234,63 @@
     </branch>
   </autotools>
 
+  <!-- GStreamer -->
+
+  <autotools id="gstreamer">
+    <branch repo="gstreamer"
+            module="gstreamer/gstreamer"
+            tag="RELEASE-0.10.35" />
+  </autotools>
+
+  <autotools id="gst-plugins-base">
+    <branch repo="gstreamer"
+            module="gstreamer/gst-plugins-base"
+            tag="RELEASE-0.10.35" />
+    <dependencies>
+      <dep package="gstreamer"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gst-plugins-good">
+    <branch repo="gstreamer"
+            module="gstreamer/gst-plugins-good"
+            tag="RELEASE-0.10.30" />
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gst-plugins-bad">
+    <branch repo="gstreamer"
+            module="gstreamer/gst-plugins-bad"
+            tag="RELEASE-0.10.22" />
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gst-plugins-ugly">
+    <branch repo="gstreamer"
+            module="gstreamer/gst-plugins-ugly"
+            tag="RELEASE-0.10.18" />
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gst-ffmpeg">
+    <branch repo="gstreamer"
+            module="gstreamer/gst-ffmpeg"
+            tag="RELEASE-0.10.12" />
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+  </autotools>
+
   <!-- MediaExplorer -->
 
   <autotools id="mex" autogenargs="--disable-introspection --disable-library">
@@ -256,6 +315,16 @@
   </autotools>
 
   <!-- meta modules -->
+
+  <metamodule id="meta-gst">
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gst-plugins-good"/>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gst-plugins-ugly"/>
+    </dependencies>
+  </metamodule>
 
   <metamodule id="meta-mex-minimal">
     <dependencies>
