@@ -80,8 +80,6 @@
             hash="sha256:54ef0481d4318aaf0d701cbcccf67f80d96568e34279b949cfded900b1e4348c"
             md5sum="8f0c690bfb33c3cbbc2471c3d9ba0158" size="1545086" />
     <patches>
-      <patch file="sqlite3-compile-with-SQLITE_OMIT_LOOKASIDE-flag.patch" strip="1"/>
-    </patches>
   </tarball>
 
   <!-- GVFS -->
