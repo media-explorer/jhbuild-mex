@@ -50,7 +50,7 @@
   the build to have the right gir file version -->
   <autotools id="mx" autogenargs="--disable-introspection --disable-gtk-widgets">
     <branch repo="github.com"
-            module="clutter-project/mx.git"
+            module="clutter-project/mx"
             revision="master"/>
     <dependencies>
       <dep package="clutter"/>
