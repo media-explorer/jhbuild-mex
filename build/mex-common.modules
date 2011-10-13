@@ -23,9 +23,6 @@
   <repository type="git" name="github.com/rib"
       href="git://github.com/rib"/>
 
-  <repository type="git" name="git.meego.com"
-      href="ssh://git@git.meego.com" />
-
   <!-- GNOME plaform -->
 
   <autotools id="uprof">
