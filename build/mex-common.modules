@@ -28,13 +28,6 @@
 
   <!-- GNOME plaform -->
 
-  <!-- use the distribution gir/typelib files
-  <autotools id="gir-repository">
-    <branch repo="git.gnome.org"
-            module="gir-repository"
-            revision="master"/>
-  </autotools>-->
-
   <autotools id="uprof">
     <branch repo="github.com/rib"
             module="UProf"
