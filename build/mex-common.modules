@@ -183,16 +183,6 @@
     </dependencies>
   </autotools>
 
-  <autotools id="tumbler">
-    <branch repo="github.com"
-            module="rossburton/tumbler"
-            revision="master"/>
-    <dependencies>
-      <dep package="glib"/>
-      <dep package="cairo"/>
-    </dependencies>
-  </autotools>
-
   <!-- telepathy plugin dependencies -->
 
   <autotools id="telepathy-glib">
