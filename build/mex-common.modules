@@ -120,9 +120,6 @@
     <patches>
       <patch file="gdata-core-Remove-g_message-spewing-screens-of-debug-messa.patch" strip="1"/>
     </patches>
-    <dependencies>
-      <dep package="vala"/>
-    </dependencies>
   </tarball>
 
   <!-- disable vala as it'll use the system vala and try to install the vapi
