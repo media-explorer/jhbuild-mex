@@ -24,7 +24,7 @@
   <autotools id="cogl" autogenargs="--disable-introspection">
     <branch repo="git.gnome.org"
             module="cogl"
-            revision="master"/>
+            revision="cogl-1.8"/>
     <dependencies>
     </dependencies>
     <after>
@@ -35,10 +35,11 @@
   <autotools id="clutter" autogenargs="--disable-introspection">
     <branch repo="git.gnome.org"
             module="clutter"
-            revision="master"/>
+            revision="clutter-1.8"/>
     <dependencies>
       <dep package="atk"/>
       <dep package="cogl"/>
+      <dep package="pango"/>
     </dependencies>
     <after>
       <dep package="cairo"/>
