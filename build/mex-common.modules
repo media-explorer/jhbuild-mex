@@ -83,12 +83,12 @@
 
   <!-- Sqlite -->
 
-  <tarball id="sqlite3" version="3.7.4"
+  <autotools id="sqlite3" version="3.7.4"
            autogenargs="--enable-threadsafe --disable-tcl --enable-load-extension">
     <pkg-config>sqlite3.pc</pkg-config>
     <branch module="sqlite-autoconf-3070400.tar.gz" version="3.7.4"
             repo="sqlite.org" />
-  </tarball>
+  </autotools>
 
   <!-- GVFS -->
 
