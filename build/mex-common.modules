@@ -74,7 +74,7 @@
   <!-- Vala -->
 
   <autotools id="vala" version="0.14.0" autogenargs="--enable-vapigen">
-    <branch module="vala/0.14/vala-0.14.0.tar.gz" version="0.14.0"
+    <branch module="vala/0.14/vala-0.14.0.tar.bz2" version="0.14.0"
             repo="download.gnome.org" />
     <dependencies>
       <dep package="glib"/>
