@@ -289,7 +289,7 @@
     </dependencies>
     <after>
       <dep package="librest" />
-      <dep package="tracker-upnp" />
+      <!-- <dep package="tracker-upnp" /> -->
       <!-- telepathy plugin -->
       <dep package="telepathy-glib" />
       <dep package="telepathy-farstream" />
@@ -323,7 +323,7 @@
       <dep package="tracker"/>
       <dep package="libgdata"/>
       <dep package="librest" />
-      <dep package="tracker-upnp" />
+      <!-- <dep package="tracker-upnp" /> -->
       <!-- telepathy plugin -->
       <dep package="telepathy-glib" />
       <dep package="telepathy-farstream" />
