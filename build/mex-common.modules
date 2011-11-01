@@ -39,8 +39,13 @@
 
   <autotools id="pango">
     <pkg-config>pango.pc</pkg-config>
+    <!--
     <branch module="pango/1.28/pango-1.28.4.tar.bz2" version="1.28.4"
             repo="download.gnome.org" />
+    -->
+    <branch repo="git.gnome.org"
+            module="pango"
+            revision="master" />
   </autotools>
 
   <autotools id="glib">
