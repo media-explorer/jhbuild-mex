@@ -10,7 +10,7 @@
 
   <include href="mex-common.modules" />
 
-  <autotools id="atk" autogenargs="--disable-introspection">
+  <autotools id="atk">
     <branch repo="git.gnome.org"
             module="atk"
             revision="master"/>
@@ -21,7 +21,7 @@
     </after>
   </autotools>
 
-  <autotools id="cogl" autogenargs="--disable-introspection">
+  <autotools id="cogl">
     <branch repo="git.gnome.org"
             module="cogl"
             revision="cogl-1.8"/>
@@ -32,7 +32,7 @@
     </after>
   </autotools>
 
-  <autotools id="clutter" autogenargs="--disable-introspection">
+  <autotools id="clutter">
     <branch repo="git.gnome.org"
             module="clutter"
             revision="clutter-1.8"/>
@@ -49,7 +49,7 @@
 
   <!-- disable gtk widgets as it's both unneeded and would pull gtk into
   the build to have the right gir file version -->
-  <autotools id="mx" autogenargs="--disable-introspection --disable-gtk-widgets">
+  <autotools id="mx" autogenargs="--disable-gtk-widgets">
     <branch repo="github.com"
             module="clutter-project/mx"
             revision="master"/>
