@@ -24,7 +24,7 @@
   <autotools id="cogl">
     <branch repo="git.gnome.org"
             module="cogl"
-            revision="cogl-1.8"/>
+            revision="master"/>
     <dependencies>
     </dependencies>
     <after>
@@ -35,13 +35,14 @@
   <autotools id="clutter">
     <branch repo="git.gnome.org"
             module="clutter"
-            revision="clutter-1.8"/>
+            revision="master"/>
     <dependencies>
-      <dep package="atk"/>
+      <dep package="glib"/>
       <dep package="cogl"/>
-      <dep package="pango"/>
     </dependencies>
     <after>
+      <dep package="atk"/>
+      <dep package="pango"/>
       <dep package="cairo"/>
       <dep package="json-glib"/>
     </after>
