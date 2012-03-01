@@ -48,9 +48,7 @@
     </after>
   </autotools>
 
-  <!-- disable gtk widgets as it's both unneeded and would pull gtk into
-  the build to have the right gir file version -->
-  <autotools id="mx" autogenargs="--disable-gtk-widgets">
+  <autotools id="mx">
     <branch repo="github.com"
             module="clutter-project/mx"
             revision="master"/>

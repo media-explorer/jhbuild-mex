@@ -42,7 +42,7 @@
     </dependencies>
   </autotools>
 
-  <autotools id="mx" autogenargs="--without-imcontext --without-gesture --with-winsys='none'">
+  <autotools id="mx" autogenargs="--with-winsys='none'">
     <branch repo="git.clutter-project.org"
             module="mx"
             revision="master"/>
