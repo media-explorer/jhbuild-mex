@@ -322,10 +322,7 @@
       <dep package="libgdata"/>
       <dep package="librest" />
       <dep package="tracker-upnp" />
-      <!-- telepathy plugin -->
-      <dep package="telepathy-glib" />
-      <dep package="telepathy-farstream" />
-      <dep package="telepathy-yell" />
+      <dep package="telepathy-farstream" /><!-- telepathy plugin -->
       <dep package="mex"/>
     </dependencies>
   </metamodule>
