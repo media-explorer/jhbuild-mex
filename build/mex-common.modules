@@ -8,8 +8,8 @@
               href="http://cairographics.org/"/>
   <repository type="tarball" name="telepathy"
               href="http://telepathy.freedesktop.org/releases/" />
-  <repository type="tarball" name="farsight"
-              href="http://farsight.freedesktop.org/releases/farsight2/" />
+  <repository type="tarball" name="farstream"
+              href="http://freedesktop.org/software/farstream/releases/farstream/" />
   <repository type="tarball" name="download.gnome.org"
               href="http://download.gnome.org/sources/" />
   <repository type="tarball" name="sqlite.org"
@@ -191,30 +191,28 @@
   <!-- telepathy plugin dependencies -->
 
   <autotools id="telepathy-glib">
-    <branch module="telepathy-glib/telepathy-glib-0.15.5.tar.gz"
-            version="0.15.5" repo="telepathy">
+    <pkg-config>telepathy-glib.pc</pkg-config>
+    <branch module="telepathy-glib/telepathy-glib-0.17.5.tar.gz"
+            version="0.17.5" repo="telepathy">
     </branch>
   </autotools>
 
-  <autotools id="farsight" autogenargs="--disable-python">
-    <branch module="farsight2-0.0.30.tar.gz"
-            version="0.0.30" repo="farsight">
+  <autotools id="farstream" autogenargs="--disable-python">
+    <pkg-config>farstream-0.1.pc</pkg-config>
+    <branch module="farstream-0.1.1.tar.gz"
+            version="0.1.1" repo="farstream">
     </branch>
   </autotools>
 
   <autotools id="telepathy-farstream" autogenargs="--disable-python">
-    <branch module="telepathy-farstream/telepathy-farstream-0.1.1.tar.gz"
-            version="0.1.1" repo="telepathy">
+    <pkg-config>telepathy-farstream.pc</pkg-config>
+    <branch module="telepathy-farstream/telepathy-farstream-0.2.1.tar.gz"
+            version="0.2.1" repo="telepathy">
     </branch>
     <dependencies>
-      <dep package="farsight"/>
+      <dep package="telepathy-glib"/>
+      <dep package="farstream"/>
     </dependencies>
-  </autotools>
-
-  <autotools id="telepathy-yell">
-    <branch module="telepathy-yell/telepathy-yell-0.0.3.tar.gz"
-            version="0.0.3" repo="telepathy">
-    </branch>
   </autotools>
 
   <!-- GStreamer -->
@@ -293,7 +291,7 @@
       <!-- telepathy plugin -->
       <dep package="telepathy-glib" />
       <dep package="telepathy-farstream" />
-      <dep package="telepathy-yell" />
+      <dep package="farstream" />
     </after>
   </autotools>
 
