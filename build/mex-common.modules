@@ -46,7 +46,7 @@
   <autotools id="glib">
     <branch repo="git.gnome.org"
             module="glib"
-            revision="master"/>
+            revision="glib-2-32"/>
   </autotools>
 
   <autotools id="pixman" autogenargs="--disable-gtk">
