@@ -8,7 +8,11 @@
   <repository type="git" name="github.com"
               href="git://github.com/"/>
 
-  <include href="mex-common.modules" />
+  <autotools id="glib">
+    <branch repo="git.gnome.org"
+            module="glib"
+            revision="glib-2-32"/>
+  </autotools>
 
   <autotools id="atk">
     <branch repo="git.gnome.org"
@@ -48,6 +52,15 @@
     </after>
   </autotools>
 
+  <autotools id="clutter-gst">
+    <branch repo="git.gnome.org"
+            module="clutter-gst"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
   <autotools id="mx">
     <branch repo="github.com"
             module="clutter-project/mx"
@@ -56,5 +69,46 @@
       <dep package="clutter"/>
     </dependencies>
   </autotools>
+
+  <!-- Grilo -->
+
+  <autotools id="grilo" autogenargs="--disable-vala --disable-introspection --enable-maintainer-mode">
+    <branch repo="git.gnome.org"
+            module="grilo"
+            revision="0.1.x"/>
+  </autotools>
+
+  <autotools id="grilo-plugins" autogenargs="--enable-vimeo --enable-filesystem --enable-tracker --enable-lastfm-albumart --disable-podcasts --enable-maintainer-mode" >
+    <branch repo="git.gnome.org"
+            module="grilo-plugins"
+            revision="0.1.x"/>
+    <dependencies>
+      <dep package="grilo"/>
+    </dependencies>
+  </autotools>
+
+  <!-- MediaExplorer -->
+
+  <autotools id="mex" autogenargs="--disable-introspection --disable-library">
+    <branch repo="github.com"
+            module="media-explorer/media-explorer"
+            revision="master"/>
+    <dependencies>
+      <dep package="clutter"/>
+      <dep package="clutter-gst"/>
+      <dep package="mx"/>
+      <dep package="grilo"/>
+      <dep package="grilo-plugins" />
+    </dependencies>
+  </autotools>
+
+
+  <!-- meta modules -->
+
+  <metamodule id="meta-mex">
+    <dependencies>
+      <dep package="mex"/>
+    </dependencies>
+  </metamodule>
 
 </moduleset>
