@@ -24,7 +24,7 @@ build_policy = 'updated'
 
 moduleset = os.path.expanduser('~/src/jhbuild-mex/build/mex.modules')
 
-modules = [ 'meta-mex' ]
+modules = [ 'media-explorer' ]
 
 # what directory should the source be checked out to?
 checkoutroot = os.path.expanduser('~/mex/source')
