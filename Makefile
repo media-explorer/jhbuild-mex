@@ -1,5 +1,5 @@
 prefix = $(HOME)
-bindir = $(prefix)/bin
+bindir = $(prefix)/.local/bin
 sharedir = $(prefix)/share
 
 RM = rm -f
